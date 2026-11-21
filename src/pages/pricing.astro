@@ -2,274 +2,156 @@
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import Prices from '~/components/widgets/Pricing.astro';
-import Comparison from '~/components/widgets/Comparison.astro';
+import Features2 from '~/components/widgets/Features2.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Features3 from '~/components/widgets/Features3.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Pricing',
+  title: 'Pricing & Web Development Packages',
   description:
-    'Pricing page demo built with AstroWind: tiered plans, feature comparison, steps and FAQs styled with Tailwind CSS.',
+    'Transparent website development pricing from Maiyu. Starter websites from $599, Growth Marketing Websites starting at $999, and custom e-commerce solutions.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
-
+  <!-- HeroText Widget *************** -->
   <HeroText
-    tagline="Pricing"
-    title="Stellar Pricing for Every Journey"
-    subtitle="Choose the perfect plan that aligns with your cosmic goals."
+    tagline="Pricing & Packages"
+    title="Transparent, Fixed-Price Web Development"
+    subtitle="No surprise hourly bills or hidden agency markups. Choose a package that matches your growth stage, or request a custom quote."
   />
 
-  <!-- Pricing Widget ******************* -->
-
+  <!-- Pricing Widget **************** -->
   <Prices
-    title="Our prices"
-    subtitle="Only pay for what you need"
     prices={[
       {
-        title: 'basic',
-        subtitle: 'Optimal choice for personal use',
-        price: { monthly: 29, yearly: 290 },
-        period: { monthly: 'per month', yearly: 'per year' },
+        title: 'Starter Website',
+        subtitle: 'Clean, fast online presence for startups & small businesses',
+        price: 599,
+        period: 'one-time project',
         items: [
-          {
-            description: 'Etiam in libero, et volutpat',
-          },
-          {
-            description: 'Aenean ac nunc dolor tristique',
-          },
-          {
-            description: 'Cras scelerisque accumsan lib',
-          },
-          {
-            description: 'In hac habitasse',
-          },
+          { description: 'Up to 5 custom responsive pages' },
+          { description: 'Modern mobile-first UI/UX design' },
+          { description: 'Inquiry form & WhatsApp direct chat button' },
+          { description: 'On-page SEO tags, SSL & XML sitemap' },
+          { description: 'Global CDN deployment & source code handover' },
+          { description: '5–7 business days delivery' },
         ],
         callToAction: {
-          text: 'Get started',
-          href: '#',
+          text: 'Select Starter ($599)',
+          href: '/contact?plan=starter',
         },
       },
       {
-        title: 'standard',
-        subtitle: 'Optimal choice for small teams',
-        price: { monthly: 69, yearly: 690 },
-        period: { monthly: 'per month', yearly: 'per year' },
-        note: 'Two months free on the yearly plan',
-        highlight: true,
-        items: [
-          {
-            description: 'Proin vel laoreet',
-          },
-          {
-            description: 'Ut efficitur habitasse egestas',
-          },
-          {
-            description: 'Volutpat hac curabitur',
-          },
-          {
-            description: 'Pellentesque blandit ut nibh',
-          },
-          {
-            description: 'Donec fringilla sem',
-          },
-        ],
-        callToAction: {
-          text: 'Get started',
-          href: '#',
-        },
+        title: 'Growth Marketing Site',
+        subtitle: 'Our flagship package for B2B companies, exporters & brands',
+        price: 999,
+        period: 'starting at / project',
         hasRibbon: true,
-        ribbonTitle: 'popular',
-      },
-      {
-        title: 'premium',
-        subtitle: 'Optimal choice for companies',
-        price: { monthly: 199, yearly: 1990 },
-        period: { monthly: 'per month', yearly: 'per year' },
+        ribbonTitle: 'Most Popular',
         items: [
-          {
-            description: 'Curabitur suscipit risus',
-          },
-          {
-            description: 'Aliquam habitasse malesuada',
-          },
-          {
-            description: 'Suspendisse sit amet blandit',
-          },
-          {
-            description: 'Suspendisse auctor blandit dui',
-          },
+          { description: 'Up to 12 custom pages + Blog / News system' },
+          { description: 'Conversion-focused layout & copy refinement' },
+          { description: 'Advanced Technical SEO & JSON-LD Schema' },
+          { description: '95+ Google PageSpeed performance optimization' },
+          { description: 'Google Analytics & Search Console integration' },
+          { description: '30 days free post-launch technical support' },
         ],
         callToAction: {
-          text: 'Get started',
-          href: '#',
+          text: 'Start Growth Site ($999+)',
+          href: '/contact?plan=growth',
+        },
+      },
+      {
+        title: 'Custom & E-Commerce',
+        subtitle: 'Tailored web platforms, D2C stores & complex integrations',
+        price: 1999,
+        period: 'starting at / project',
+        items: [
+          { description: 'Unlimited product/service pages & CMS' },
+          { description: 'Stripe / PayPal global payment integration' },
+          { description: 'Multi-language support & custom API workflows' },
+          { description: 'AI chatbot / automated lead routing setup' },
+          { description: 'Dedicated project manager & priority delivery' },
+          { description: '60 days priority support & full code ownership' },
+        ],
+        callToAction: {
+          text: 'Request Custom Quote',
+          href: '/contact?plan=custom',
         },
       },
     ]}
   />
 
-  <!-- Comparison Widget ************ -->
-
-  <Comparison
-    id="compare"
-    tagline="Compare plans"
-    title="Everything in each plan"
-    subtitle="The full feature matrix. Highlighted column: the plan most teams pick."
-    firstColumnLabel="Features"
-    columns={[
-      { title: 'Basic', subtitle: '$29 / month', callToAction: { text: 'Get started', href: '/contact' } },
-      {
-        title: 'Standard',
-        subtitle: '$69 / month',
-        highlight: true,
-        callToAction: { text: 'Get started', href: '/contact' },
-      },
-      { title: 'Premium', subtitle: '$199 / month', callToAction: { text: 'Talk to us', href: '/contact' } },
-    ]}
-    rows={[
-      { group: 'Core', label: 'Pages', values: ['Unlimited', 'Unlimited', 'Unlimited'] },
-      { group: 'Core', label: 'Projects', values: ['1', '5', 'Unlimited'] },
-      { group: 'Core', label: 'Team members', values: ['1', '5', '25'] },
-      { group: 'Core', label: 'Custom domain', values: [true, true, true] },
-      { group: 'Support', label: 'Email support', values: [true, true, true] },
-      {
-        group: 'Support',
-        label: 'Priority support',
-        description: 'Response within one business day',
-        values: [false, true, true],
-      },
-      { group: 'Support', label: 'Dedicated manager', values: [false, false, true] },
-      { group: 'Extras', label: 'Analytics dashboard', values: [false, true, true] },
-      { group: 'Extras', label: 'Single sign-on (SSO)', values: [false, false, true] },
-      { group: 'Extras', label: 'Audit log', values: [false, false, '90 days'] },
-    ]}
-  />
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    title="Price-related features"
-    subtitle="Discover the advantages of choosing our plans"
-    columns={2}
+  <!-- Add-ons & Included Features -->
+  <Features2
+    tagline="Included in Every Build"
+    title="Standard Guarantees Across All Packages"
+    subtitle="Every project built by Maiyu meets strict international engineering and SEO standards."
     items={[
       {
-        title: 'Tiered Pricing Plans',
-        description: 'Choose from a range of pricing plans designed to accommodate different budgets and requirements.',
-        icon: 'tabler:stairs',
+        title: '100% Source Code Ownership',
+        description: 'You receive the complete Git repository and build files. You are never locked into proprietary software.',
+        icon: 'tabler:brand-git',
       },
       {
-        title: 'Transparent Pricing',
-        description: 'Clearly displayed pricing details for each plan, with no hidden costs or unexpected charges.',
-        icon: 'tabler:flip-vertical',
+        title: 'Zero Monthly Platform Fees',
+        description: 'We deploy on modern static/edge infrastructure (GitHub Pages, Cloudflare, Vercel) with near-zero hosting overhead.',
+        icon: 'tabler:cloud-check',
       },
       {
-        title: 'Secure Payment Methods',
-        description: 'Secure payment gateways to protect your financial information during transactions.',
-        icon: 'tabler:shield-lock',
-      },
-      {
-        title: 'Instant Access',
-        description: `Immediate access to your chosen plan's features and templates upon subscription.`,
-        icon: 'tabler:accessible',
-      },
-      {
-        title: 'Upgrade Value',
-        description: 'Upgrade to higher-tier plans to unlock more features and benefits for an enhanced experience.',
-        icon: 'tabler:chevrons-up',
-      },
-      {
-        title: '24H support',
-        description: 'Questions answered via live chat, email or phone, every calendar day.',
-        icon: 'tabler:headset',
+        title: 'Cross-Device Responsiveness',
+        description: 'Tested across iOS, Android, tablets, and major desktop browsers to guarantee pixel-perfect rendering.',
+        icon: 'tabler:devices',
       },
     ]}
-    classes={{ container: 'max-w-5xl' }}
-  />
-
-  <!-- Steps Widget ****************** -->
-
-  <Steps
-    title="A guided journey from plans to creativity"
-    tagline="simplified process"
-    isReversed={true}
-    items={[
-      {
-        title: 'Pick a plan',
-        description: 'Compare the three plans and choose the one that fits your project.',
-        icon: 'tabler:number-1',
-      },
-      {
-        title: 'Create your account',
-        description: 'Sign up or log in. It takes a minute and you only do it once.',
-        icon: 'tabler:number-2',
-      },
-      {
-        title: 'Pay securely',
-        description: 'Enter your payment details, review the order and confirm.',
-        icon: 'tabler:number-3',
-      },
-      {
-        title: 'Download and build',
-        description: 'Get the template and start editing right away.',
-        icon: 'tabler:number-4',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1536816579748-4ecb3f03d72a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
-    }}
-  />
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
 
   <!-- FAQs Widget ******************* -->
-
   <FAQs
-    title="Pricing FAQs"
-    subtitle="Choosing the right plan is important, and we're here to answer your questions. If you have queries about our pricing options, you're in the right place."
-    columns={1}
+    title="Pricing & Billing FAQs"
     items={[
       {
-        title: 'Do the plans come with customer support?',
+        title: 'Are domain name and hosting included in the package price?',
         description:
-          'Absolutely, all plans include access to our dedicated customer support to assist you with any queries or concerns.',
+          'We assist you in registering your domain (typically ~$10–$15/year) and setting up ultra-fast global cloud hosting under your own account so you retain 100% administrative control.',
       },
       {
-        title: 'Is there a trial period for the different plans?',
+        title: 'How does the 50/50 payment schedule work?',
         description:
-          "Unfortunately, we don't offer trial periods for the plans. However, you can check out our demo section to preview the quality of our templates.",
+          'You pay 50% upfront to initiate design and development. Once your website is built on our staging link and you have reviewed and approved everything, you pay the remaining 50% for final domain launch and code handover.',
       },
       {
-        title: 'Can I switch between plans?',
+        title: 'What if I need extra pages or custom features later?',
         description:
-          'Certainly! You can easily upgrade or downgrade your plan, at any time, to find the one that best suits your evolving requirements.',
+          'Because our websites are built with modular component architecture, adding new pages, languages, or features later is fast and affordable.',
       },
       {
-        title: 'What payment methods do you accept?',
+        title: 'Do you offer ongoing monthly maintenance?',
         description:
-          'We accept major credit cards and online payment methods to ensure a convenient and secure transaction process.',
-      },
-      {
-        title: 'Are there any hidden fees beyond the displayed cost?',
-        description:
-          'No, the subscription cost covers all the features and templates listed under each plan. There are no hidden fees or extra charges.',
+          'All packages include 30–60 days of free post-launch support. After that, you can manage content yourself or opt into an optional low-cost maintenance plan.',
       },
     ]}
   />
 
   <!-- CallToAction Widget *********** -->
-
   <CallToAction
-    title="Ready to boost your projects?"
-    subtitle="Join our community of satisfied customers who have transformed their work with our templates."
     actions={[
       {
         variant: 'primary',
-        text: 'Get started now',
-        href: '/',
+        text: 'Get Your Exact Quote',
+        href: '/contact',
+        icon: 'tabler:file-dollar',
       },
     ]}
-  />
+  >
+    <Fragment slot="title">Have a specific budget or feature list?</Fragment>
+    <Fragment slot="subtitle">
+      Email <strong>dong@tiantongfu.com</strong> or message us on WhatsApp (<strong>+86 199 0397 0011</strong>) for a custom breakdown.
+    </Fragment>
+  </CallToAction>
 </Layout>

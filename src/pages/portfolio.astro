@@ -1,0 +1,164 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Content from '~/components/widgets/Content.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Portfolio & Client Case Studies',
+  description:
+    'Explore recent corporate websites, high-converting marketing sites, and e-commerce platforms engineered by Maiyu.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget *************** -->
+  <HeroText
+    tagline="Selected Work"
+    title="Websites Built for Speed, Trust & Conversion"
+    subtitle="A showcase of how we help B2B manufacturers, SaaS startups, and global brands transform their digital presence."
+  />
+
+  <!-- Case Study 1 -->
+  <Content
+    isReversed
+    tagline="B2B Industrial & Export · Growth Package"
+    title="Global Precision Manufacturing Portal"
+    items={[
+      {
+        title: 'Challenge',
+        description:
+          'The client had an outdated, slow-loading catalog site that failed to generate international distributor inquiries.',
+      },
+      {
+        title: 'Solution',
+        description:
+          'Designed a clean, authoritative B2B portal with structured product specs, instant PDF datasheet downloads, and direct WhatsApp inquiry triggers.',
+      },
+      {
+        title: 'Result',
+        description:
+          '99/100 Google PageSpeed score and a 2.4x increase in qualified overseas RFQ submissions within 60 days.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2070&q=80',
+      alt: 'B2B Corporate Website Case Study',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Modernizing B2B Buyer Trust
+      </h3>
+      Built with Astro + Tailwind CSS for instant global loading across North America and Europe.
+    </Fragment>
+  </Content>
+
+  <!-- Case Study 2 -->
+  <Content
+    isAfterContent
+    tagline="SaaS & Tech Startup · Marketing Website"
+    title="AI Workflow SaaS Landing & Documentation Hub"
+    items={[
+      {
+        title: 'Challenge',
+        description:
+          'Needed a high-converting launch site and SEO blog hub in under 10 days before their product release.',
+      },
+      {
+        title: 'Solution',
+        description:
+          'Engineered a dark/light mode responsive marketing site with interactive pricing tables, demo booking flows, and Markdown blog publishing.',
+      },
+      {
+        title: 'Result',
+        description:
+          'Delivered in 9 days with 100/100 Lighthouse SEO & Performance scores.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=2070&q=80',
+      alt: 'SaaS Marketing Website Case Study',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Rapid Launch Without Compromising Quality
+      </h3>
+      Clean visual hierarchy designed to turn paid ad clicks into free-trial signups.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Case Study 3 -->
+  <Content
+    isReversed
+    isAfterContent
+    tagline="Cross-Border E-Commerce · Custom Store"
+    title="D2C Lifestyle & Home Goods Storefront"
+    items={[
+      {
+        title: 'Challenge',
+        description:
+          'High mobile bounce rates due to bloated third-party scripts and slow checkout transitions.',
+      },
+      {
+        title: 'Solution',
+        description:
+          'Rebuilt the storefront with a lightweight mobile-first UI, streamlined product filtering, and Stripe/PayPal express checkout.',
+      },
+      {
+        title: 'Result',
+        description:
+          'Page load time reduced from 4.8s to 0.7s, lifting mobile checkout completion by 34%.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1999&q=80',
+      alt: 'E-Commerce Store Case Study',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Speed That Directly Lifts Conversions
+      </h3>
+      Every 100ms saved in page load time translates directly into higher customer retention.
+    </Fragment>
+  </Content>
+
+  <!-- Stats Widget ****************** -->
+  <Stats
+    title="Proven Delivery Track Record"
+    stats={[
+      { title: 'Websites Launched', amount: '120+' },
+      { title: 'Countries Served', amount: '18+' },
+      { title: 'Avg. Lighthouse Score', amount: '98' },
+      { title: 'On-Time Delivery', amount: '99%' },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Start Your Project',
+        href: '/contact',
+        icon: 'tabler:rocket',
+      },
+      {
+        text: 'View Packages ($999+)',
+        href: '/pricing',
+      },
+    ]}
+  >
+    <Fragment slot="title">Want results like these for your brand?</Fragment>
+    <Fragment slot="subtitle">
+      Let’s discuss your website goals and build a high-performing site tailored to your market.
+    </Fragment>
+  </CallToAction>
+</Layout>

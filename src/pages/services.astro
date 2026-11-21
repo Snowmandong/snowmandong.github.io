@@ -1,272 +1,208 @@
 ---
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
 import Content from '~/components/widgets/Content.astro';
 import Features2 from '~/components/widgets/Features2.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Projects from '~/components/widgets/Projects.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
-import Layout from '~/layouts/PageLayout.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Services',
+  title: 'Web Development & Outsourcing Services',
   description:
-    'Services page demo built with AstroWind: showcase what you offer with feature grids, content blocks and testimonials.',
+    'Custom corporate websites, high-converting marketing sites starting at $999, e-commerce stores, and technical SEO optimization by Maiyu.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
-  <Hero
-    tagline="Services"
-    title="Elevate your projects with our stunning templates"
-    subtitle="Explore our meticulously crafted templates tailored to various industries and purposes. From captivating presentations to functional website designs, we offer the tools you need to succeed."
-    actions={[{ variant: 'primary', target: '_blank', text: 'Start exploring', href: '/' }]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'AstroWind Hero Image',
-    }}
+  <!-- HeroText Widget *************** -->
+  <HeroText
+    tagline="Our Services"
+    title="Full-Stack Web Development Tailored for Global Growth"
+    subtitle="Whether you are launching a new brand, scaling cross-border sales, or modernizing a legacy site, Maiyu delivers fast, reliable, conversion-driven websites."
   />
 
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Explore our diverse templates"
-    subtitle="Discover our selection below to streamline and elevate your projects."
-    columns={3}
-    items={[
-      {
-        title: 'Educational',
-        description:
-          'By harmonizing instructional design and visual appeal, templates streamline content creation for varied materials, expediting development and cultivating engaging educational spaces.',
-        icon: 'tabler:school',
-      },
-      {
-        title: 'Interior Design',
-        description:
-          'Crafting functional, visually appealing spaces for residential and commercial use. Templates emphasize layout, colors, and furniture setups, offering a versatile toolkit for your design vision.',
-        icon: 'tabler:home-star',
-      },
-      {
-        title: 'Photography',
-        description: `Empowering photographers, our templates facilitate captivating storytelling. With a keen focus on layout, galleries, and typography, they cater to both professionals and enthusiasts.`,
-        icon: 'tabler:photo',
-      },
-      {
-        title: 'E-commerce',
-        description:
-          'Developing engaging online stores, our E-commerce templates ensure a dynamic presence to effectively showcase products. Ideal for startups or revamps.',
-        icon: 'tabler:shopping-cart',
-      },
-      {
-        title: 'Blog',
-        description:
-          'With attention to typography, these templates empower effective content presentation for writers at any stage, ensuring visually engaging and user-friendly blogs.',
-        icon: 'tabler:article',
-      },
-      {
-        title: 'Business',
-        description:
-          'Providing polished options for effective visual communication, these templates empower both startups and established companies for a professional brand presence.',
-        icon: 'tabler:building-store',
-      },
-      {
-        title: 'Branding',
-        description:
-          'Offering pre-designed elements for a consistent brand identity, including logos and marketing materials. Ideal for new ventures or revamps.',
-        icon: 'tabler:arrow-big-up-lines',
-      },
-      {
-        title: 'Medical',
-        description: `From presentations to patient forms, these tools enhance communication effectiveness for healthcare professionals. Ideal for medical practices and research pursuits.`,
-        icon: 'tabler:vaccine',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'With attention to detail, customization, and contemporary design, they empower designers to showcase ideas cohesively. Ideal for all levels of designers.',
-        icon: 'tabler:tie',
-      },
-    ]}
-  />
-
-  <!-- Content Widget **************** -->
-
+  <!-- Service 1: Custom Corporate Websites -->
   <Content
+    id="corporate"
     isReversed
+    tagline="Enterprise & B2B"
+    title="Custom Corporate Websites"
     items={[
       {
-        title: 'High-Quality Designs',
+        title: 'Bespoke Brand Identity & UI/UX',
         description:
-          'Our templates feature top-tier designs that ensure a professional and polished appearance for your projects.',
-        icon: 'tabler:wand',
+          'Tailored visual layouts designed from scratch to reflect your company’s authority, professionalism, and industry positioning.',
       },
       {
-        title: 'Customization Tools',
+        title: 'Multi-Language & Global Readiness',
         description:
-          'Tailor each template to your unique needs with user-friendly customization tools that let you personalize colors, fonts, and content.',
-        icon: 'tabler:settings',
+          'Clean architecture supporting English and multi-regional localization to help you win trust with international buyers.',
       },
       {
-        title: 'Pre-Designed Elements',
+        title: '100% Ownership & Zero Lock-In',
         description:
-          'Save time and effort with our ready-to-use elements, including graphics, icons, and layouts that enhance the visual appeal of your creations.',
-        icon: 'tabler:presentation',
-      },
-      {
-        title: 'Preview and Mockup Views',
-        description:
-          'Visualize the final outcome before making any changes using our preview and mockup views, ensuring your projects meet your expectations.',
-        icon: 'tabler:carousel-horizontal',
+          'Full source code, design assets, and repository handover upon completion—no recurring proprietary platform fees.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1525909002-1b05e0c869d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
-      alt: 'Features Image',
+      src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2069&q=80',
+      alt: 'Corporate Website Design',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Main Features</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Build Immediate Credibility Online
+      </h3>
+      Your corporate site is the digital headquarters of your business. We structure every section to turn first-time visitors into qualified leads.
     </Fragment>
   </Content>
 
-  <!-- Content Widget **************** -->
-
+  <!-- Service 2: Marketing & Landing Pages -->
   <Content
+    id="marketing"
     isAfterContent
+    tagline="Conversion Focused · From $999"
+    title="High-Converting Marketing & Independent Sites"
     items={[
       {
-        title: 'Time Savings',
+        title: 'Persuasive Conversion Funnels',
         description:
-          'Streamline your workflow, enabling you to create stunning materials efficiently and allocate more time to your core tasks.',
-        icon: 'tabler:clock',
+          'Strategic page hierarchy, clear value propositions, social proof blocks, and frictionless inquiry forms designed to maximize ROI.',
       },
       {
-        title: 'Professional Appearance',
+        title: 'Instant Lead Capture & WhatsApp Integration',
         description:
-          'Elevate your projects with the polished and sophisticated look that our templates provide, making a lasting impression on your audience.',
-        icon: 'tabler:school',
+          'Connect visitors directly to your sales team via one-click WhatsApp chat, email forms, and CRM webhooks.',
       },
       {
-        title: 'Cost-Efficiency',
+        title: 'Ad-Campaign Ready Performance',
         description:
-          'Benefit from cost savings by avoiding the need for custom design work, as our templates offer professional-grade designs at a fraction of the cost.',
-        icon: 'tabler:coin',
-      },
-      {
-        title: 'Instant Download',
-        description:
-          'Enjoy immediate access to your chosen templates upon purchase, enabling you to begin working on your projects without delay.',
-        icon: 'tabler:file-download',
+          'Sub-second load times ensure you never waste Google Ads or Meta Ads spend on slow, high-bounce landing pages.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1552664688-cf412ec27db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-      alt: 'Benefits Image',
+      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Marketing Analytics and Conversion',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Benefits</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Turn Traffic into Measurable Revenue
+      </h3>
+      Starting at <strong>$999</strong>, our Growth Marketing Websites are built specifically for exporters, SaaS startups, and service brands seeking global customer acquisition.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
 
-  <!-- Projects Widget *************** -->
-
-  <Projects
-    id="work"
-    tagline="Case studies"
-    title="Recent work"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla."
+  <!-- Service 3: E-Commerce Development -->
+  <Content
+    id="ecommerce"
+    isReversed
+    isAfterContent
+    tagline="Cross-Border Retail & D2C"
+    title="E-Commerce & Online Store Development"
     items={[
       {
-        title: 'SaaS marketing site',
-        description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.',
-        image: {
-          src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-          alt: 'People working on laptops',
-        },
-        tags: ['SaaS', 'Landing pages'],
-        result: '+38 % demo requests',
-      },
-      {
-        title: 'Corporate site relaunch',
+        title: 'Seamless Product Catalog & Filtering',
         description:
-          'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.',
-        image: {
-          src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
-          alt: 'Modern office building',
-        },
-        tags: ['Corporate', 'Blog'],
-        result: 'Lighthouse 100 across the board',
+          'Intuitive category navigation, high-resolution product galleries, and mobile-first browsing experiences.',
       },
       {
-        title: 'Founder portfolio',
-        description: 'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus.',
-        image: {
-          src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
-          alt: 'A laptop with analytics on a desk',
-        },
-        tags: ['Personal', 'Portfolio'],
-        result: 'Live in one afternoon',
+        title: 'Global Payment & Checkout Flows',
+        description:
+          'Integration with Stripe, PayPal, credit cards, and regional payment gateways for smooth international transactions.',
+      },
+      {
+        title: 'Easy Inventory & Order Management',
+        description:
+          'User-friendly admin workflows so your team can update products, pricing, and promotions effortlessly.',
       },
     ]}
-  />
-
-  <!-- Testimonials Widget *********** -->
-
-  <Testimonials
-    title="Words from real customers"
-    testimonials={[
-      {
-        testimonial: `The designs are not only visually appealing but also highly professional. The templates have saved me a significant amount of time while helping me make a lasting impression on my clients.`,
-        rating: 5,
-        name: 'Emily Kennedy',
-        job: 'Front-end developer',
-        image: {
-          src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
-          alt: 'Emily Kennedy Image',
-        },
-      },
-      {
-        testimonial: `It beautifully showcases my work, with its clean and elegant design that lets my photographs shine. Customization was a breeze, even for a non-tech person like me. The result is a professional and immersive portfolio that's garnered numerous compliments.`,
-        rating: 5,
-        name: 'Sarah Hansen',
-        job: 'Photographer',
-        image: {
-          src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Sarah Hansen Image',
-        },
-      },
-      {
-        testimonial: `I discovered these templates and I'm impressed by their variety and quality. They've helped me establish a consistent brand image across my marketing and social platforms, elevating my business's overall appearance.`,
-        rating: 5,
-        name: 'Mark Wilkinson',
-        job: 'Small business owner',
-        image: {
-          src: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=824&q=80',
-          alt: 'Mark Wilkinson Image',
-        },
-      },
-    ]}
-    callToAction={{
-      target: '_blank',
-      text: 'More testimonials...',
-      href: 'https://github.com/arthelokyo/astrowind',
-      icon: 'tabler:chevron-right',
+    image={{
+      src: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=2070&q=80',
+      alt: 'E-Commerce Storefront Development',
     }}
-  />
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Sell Globally Without Technical Friction
+      </h3>
+      We build fast, reliable online stores engineered to reduce cart abandonment and scale alongside your catalog.
+    </Fragment>
+  </Content>
+
+  <!-- Service 4: Technical SEO & Speed -->
+  <Features2
+    id="seo"
+    tagline="Optimization & Care"
+    title="Technical SEO, Speed Boost & Ongoing Maintenance"
+    subtitle="Already have a website that loads slowly or fails to rank on Google? We audit, refactor, and optimize existing sites."
+    items={[
+      {
+        title: '95+ Google PageSpeed Optimization',
+        description:
+          'Image compression, modern static/edge rendering, code minification, and Core Web Vitals tuning.',
+        icon: 'tabler:gauge',
+      },
+      {
+        title: 'On-Page & Schema SEO Architecture',
+        description:
+          'Semantic heading structures, Open Graph tags, JSON-LD structured data, canonical URLs, and XML sitemaps.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Website Migration & Redesign',
+        description:
+          'Safely upgrade outdated WordPress or legacy HTML sites to modern Astro/React stacks without losing search rankings.',
+        icon: 'tabler:refresh',
+      },
+      {
+        title: 'Security, SSL & Cloud Hosting Setup',
+        description:
+          'Global CDN deployment (Cloudflare / Vercel / AWS), HTTPS configuration, and automated backups.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'AI Chatbot & Form Automation',
+        description:
+          'Embed custom AI customer support assistants and automated email notifications into your website.',
+        icon: 'tabler:robot',
+      },
+      {
+        title: 'Dedicated Outsource Partner',
+        description:
+          'Flexible retainer or per-project support with direct communication via WhatsApp and Email.',
+        icon: 'tabler:users',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
 
   <!-- CallToAction Widget *********** -->
-
   <CallToAction
     actions={[
       {
         variant: 'primary',
-        text: 'Start exploring',
-        href: '/',
+        text: 'Request a Free Proposal',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+      {
+        text: 'Chat on WhatsApp',
+        href: 'https://wa.me/8619903970011?text=Hi%20Maiyu%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20web%20services.',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
       },
     ]}
-    title="Dive into our template collection"
-    subtitle="Whether you're in business, design, or education, our templates are here to elevate your projects."
-  />
+  >
+    <Fragment slot="title">Not sure which solution fits best?</Fragment>
+    <Fragment slot="subtitle">
+      Send us your requirements or reference websites—we will recommend the most cost-effective tech stack within 24 hours.
+    </Fragment>
+  </CallToAction>
 </Layout>
