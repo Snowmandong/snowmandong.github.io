@@ -2,31 +2,25 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
+import SocialProof from '~/components/widgets/SocialProof.astro';
 import Features from '~/components/widgets/Features.astro';
-import QuickStart from '~/components/widgets/QuickStart.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Timeline from '~/components/widgets/Timeline.astro';
-import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
-import BlogHighlightedPosts from '~/components/widgets/BlogHighlightedPosts.astro';
+import Prices from '~/components/widgets/Pricing.astro';
+import Steps from '~/components/widgets/Steps.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import SocialProof from '~/components/widgets/SocialProof.astro';
 import StructuredData from '~/components/common/StructuredData.astro';
-import { SITE, METADATA, I18N } from 'astrowind:config';
+import { SITE, I18N } from 'astrowind:config';
 import favIconSvg from '~/assets/favicons/favicon.svg';
 
 const metadata = {
-  title: '中文1AstroWind — DXQFree template for creating websites with Astro + Tailwind CSS',
+  title: 'Maiyu — Custom Web Development & High-Converting Websites',
+  description:
+    'Professional web development outsourcing studio. We design and build fast, SEO-ready corporate websites, marketing sites starting at $999, and custom web applications.',
   ignoreTitleTemplate: true,
 };
 
-// Structured data for the site and its publisher, built only from
-// `src/config.yaml` (`site.name`, `site.site`, `metadata.twitter.handle`), so
-// it is correct for any site made with the template. Blog posts add
-// BlogPosting on their own; the FAQs widget adds FAQPage.
 const organizationId = `${SITE?.site}/#organization`;
 const structuredData = [
   {
@@ -40,182 +34,156 @@ const structuredData = [
   },
   {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': 'ProfessionalService',
     '@id': organizationId,
     name: SITE?.name,
     url: SITE?.site,
+    email: 'dong@tiantongfu.com',
+    telephone: '+86-199-0397-0011',
+    priceRange: '$$',
     logo: new URL(favIconSvg.src, SITE?.site).toString(),
-    ...(METADATA?.twitter?.handle ? { sameAs: [`https://x.com/${METADATA.twitter.handle.replace(/^@/, '')}`] } : {}),
   },
 ];
 ---
 
 <Layout metadata={metadata}>
   <StructuredData slot="head" schema={structuredData} />
-  <!-- Hero Widget ******************* -->
 
+  <!-- Hero Widget ******************* -->
   <Hero
-    tagline="Free & open source"
+    tagline="Global Web Development & Outsourcing Studio"
     actions={[
       {
         variant: 'primary',
-        text: 'Get Contact',
-        href: '#',
-        target: '_blank',
-        icon: 'tabler:mail',
+        text: 'Start Your Project',
+        href: '/contact',
+        icon: 'tabler:rocket',
       },
-      { text: 'Learn more', href: '#features' },
+      {
+        text: 'Chat on WhatsApp',
+        href: 'https://wa.me/8619903970011?text=Hi%20Maiyu%2C%20I%20would%20like%20to%20discuss%20a%20website%20project.',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
+    image={{
+      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Maiyu Web Development Showcase',
+    }}
   >
     <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">7中7文7creating websites with</span>
-      <span class="text-accent dark:text-white"> Astro v7</span> + Tailwind CSS
+      Websites Engineered to <span class="text-accent dark:text-white">Convert Visitors</span> into Global Clients
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro v7 +
-        Tailwind CSS v4.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages & Blogs.
+      <span class="font-semibold">Maiyu</span> is your dedicated web development partner. We design, build, and launch blazing-fast corporate sites, marketing websites (from <span class="font-semibold text-blue-600 dark:text-blue-400">$999</span>), and custom web platforms with 100% source code ownership.
     </Fragment>
   </Hero>
 
   <!-- SocialProof Widget ************ -->
-
   <SocialProof
     id="proof"
     classes={{ container: '!pb-14 md:!pb-20' }}
     items={[
       {
-        value: '#1',
-        label: 'most starred Astro theme',
-        icon: 'tabler:star-filled',
+        value: '10+ Yrs',
+        label: 'web engineering experience',
+        icon: 'tabler:award',
         color: 'text-amber-400',
       },
-      { value: '100', label: 'Lighthouse score', icon: 'tabler:gauge', color: 'text-emerald-500' },
-      { value: 'MIT', label: 'licensed, free to use', icon: 'tabler:license', color: 'text-sky-500' },
+      {
+        value: '99/100',
+        label: 'Google PageSpeed score',
+        icon: 'tabler:gauge',
+        color: 'text-emerald-500',
+      },
+      {
+        value: '7–14 Days',
+        label: 'fast project turnaround',
+        icon: 'tabler:bolt',
+        color: 'text-sky-500',
+      },
     ]}
   />
-
-  <!-- QuickStart Widget ************* -->
-
-  <QuickStart
-    id="quick-start"
-    classes={{ icon: 'bg-green-600 dark:bg-green-700' }}
-    tagline="TL;DR"
-    title="One command. That is the whole setup."
-    subtitle="For the people who scroll past the features and ask “how do I run it?”. This is how."
-    commands={['npm create astro@latest -- --template arthelokyo/astrowind']}
-    items={[
-      {
-        title: 'Two minutes, one terminal',
-        description:
-          'Answer the prompts, run <code>npm run dev</code>, open localhost:4321. The demo site is now yours to edit. The only requirement is a current Node.js.',
-        icon: 'tabler:terminal-2',
-      },
-      {
-        title: 'AI-ready out of the box',
-        description:
-          'An <code>AGENTS.md</code> and step-by-step skills tell Claude Code, Cursor or any coding assistant how this template works. Ask it for a page; it knows where things go.',
-        icon: 'tabler:sparkles',
-      },
-      {
-        title: 'Free, MIT licensed, no strings',
-        description:
-          'Use it for client work, side projects or the company site. Star the repo if it saves you an afternoon.',
-        icon: 'tabler:license',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div
-        class="absolute inset-0 bg-[radial-gradient(60%_55%_at_15%_20%,rgb(129_140_248/0.28),transparent_65%),radial-gradient(50%_50%_at_85%_25%,rgb(244_114_182/0.22),transparent_65%)] dark:bg-[radial-gradient(60%_55%_at_15%_20%,rgb(99_102_241/0.25),transparent_65%),radial-gradient(50%_50%_at_85%_25%,rgb(217_70_239/0.18),transparent_65%)]"
-      >
-      </div>
-    </Fragment>
-  </QuickStart>
 
   <!-- Features Widget *************** -->
-
   <Features
     id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022, 2023, 2024 and 2025."
+    tagline="Our Expertise"
+    title="End-to-End Web Outsourcing Solutions"
+    subtitle="From initial wireframe to global cloud deployment, we handle every technical detail so you can focus on growing your business."
     items={[
       {
-        title: 'Astro + Tailwind CSS Integration',
+        title: 'Custom Corporate Websites',
         description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility. Now powered by Tailwind CSS v4.',
-        icon: 'tabler:brand-tailwind',
+          'Bespoke, brand-aligned multi-page websites designed to establish immediate authority and trust with international B2B and B2C buyers.',
+        icon: 'tabler:building-skyscraper',
       },
       {
-        title: 'Ready-to-use Components',
+        title: 'High-Converting Marketing Sites',
         description:
-          'Widgets made with Tailwind CSS v4 ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
+          'Conversion-focused landing pages and independent brand sites engineered with clear calls-to-action, lead capture forms, and WhatsApp integration.',
+        icon: 'tabler:chart-arrows-vertical',
       },
       {
-        title: 'Best Practices',
+        title: 'E-Commerce & Online Stores',
         description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
+          'Scalable cross-border online stores featuring smooth product catalogs, secure global payment gateways, and mobile-first checkout flows.',
+        icon: 'tabler:shopping-cart',
       },
       {
-        title: 'Excellent Page Speed',
+        title: 'Technical SEO & Core Web Vitals',
         description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
+          'Clean semantic HTML, automated XML sitemaps, schema markup, and sub-second load times built to rank higher on Google from day one.',
+        icon: 'tabler:seo',
       },
       {
-        title: 'Search Engine Optimization (SEO)',
+        title: 'Responsive UI/UX Redesign',
         description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
+          'Transform outdated, slow websites into modern, pixel-perfect digital experiences that look stunning across desktop, tablet, and mobile.',
+        icon: 'tabler:device-mobile',
       },
       {
-        title: 'Open to new ideas and contributions',
+        title: 'Dedicated Maintenance & Support',
         description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
+          'Reliable post-launch technical support, security updates, content adjustments, and global CDN hosting setup with zero headaches.',
+        icon: 'tabler:headset',
       },
     ]}
   />
 
-  <!-- Content Widget **************** -->
-
+  <!-- Content Widget 1 **************** -->
   <Content
     isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
+    tagline="Why Choose Maiyu"
+    title="Modern Tech Stack. Zero Bloated Templates."
     items={[
       {
-        title: 'Built on top of Astro v7',
+        title: 'Sub-Second Loading Speed',
         description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
+          'We build with modern frameworks like Astro, React, and Tailwind CSS—eliminating sluggish legacy plugins so your visitors never bounce.',
       },
       {
-        title: 'Styled using Tailwind CSS v4',
+        title: 'Built for International Audiences',
         description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
+          'We understand Western UX expectations: clean typography, intuitive navigation, clear value propositions, and frictionless inquiry paths.',
       },
       {
-        title: 'Cross-browser compatibility',
+        title: '100% Source Code & Asset Ownership',
         description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
+          'No vendor lock-in. Upon completion, you receive full ownership of your codebase, repository, domain, and cloud hosting accounts.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
+      src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Clean modern web development code',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-      Gain a competitive advantage by incorporating industry leading practices
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Engineered for Performance & Trust
+      </h3>
+      Your website is your 24/7 global sales representative. We make sure it leaves an unforgettable first impression.
     </Fragment>
 
     <Fragment slot="bg">
@@ -223,336 +191,212 @@ const structuredData = [
     </Fragment>
   </Content>
 
-  <!-- Content Widget **************** -->
-
-  <Content
-    isAfterContent
-    items={[
+  <!-- Pricing Widget **************** -->
+  <Prices
+    id="pricing"
+    tagline="Transparent Pricing"
+    title="Flexible Packages for Every Stage"
+    subtitle="Clear, fixed-price packages with no hidden fees. Need custom functionality? Contact us for a tailored proposal within 24 hours."
+    prices={[
       {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
+        title: 'Starter Website',
+        subtitle: 'Ideal for startups, portfolios & small local businesses',
+        price: 599,
+        period: 'one-time project',
+        items: [
+          {
+            description: 'Up to 5 custom responsive pages',
+          },
+          {
+            description: 'Modern UI/UX design & mobile optimization',
+          },
+          {
+            description: 'Contact form & WhatsApp chat button',
+          },
+          {
+            description: 'Basic on-page SEO & SSL setup',
+          },
+          {
+            description: '7-day fast delivery',
+          },
+        ],
+        callToAction: {
+          text: 'Get Started',
+          href: '/contact?plan=starter',
+        },
       },
       {
-        title: 'Multiple layout possibilities',
-        description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
+        title: 'Growth Marketing Site',
+        subtitle: 'Best for B2B companies, exporters & growing brands',
+        price: 999,
+        period: 'starting at / project',
+        hasRibbon: true,
+        ribbonTitle: 'Most Popular',
+        items: [
+          {
+            description: 'Up to 12 custom-designed pages + Blog/News',
+          },
+          {
+            description: 'Conversion-focused copy & layout structure',
+          },
+          {
+            description: 'Advanced Technical SEO, Schema & Sitemap',
+          },
+          {
+            description: '95+ Google PageSpeed performance tuning',
+          },
+          {
+            description: '30 days free post-launch support',
+          },
+        ],
+        callToAction: {
+          text: 'Order Growth Package',
+          href: '/contact?plan=growth',
+        },
       },
       {
-        title: 'Fully responsive design',
-        description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
-      },
-      {
-        title: 'Integration of media',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
+        title: 'Custom & E-Commerce',
+        subtitle: 'For online stores, SaaS & complex web applications',
+        price: 1999,
+        period: 'starting at / project',
+        items: [
+          {
+            description: 'Unlimited product/service pages & CMS',
+          },
+          {
+            description: 'Global payment & multi-language integration',
+          },
+          {
+            description: 'Custom API, CRM, or AI chatbot integration',
+          },
+          {
+            description: 'Dedicated project manager & priority support',
+          },
+          {
+            description: 'Full source code & cloud architecture handover',
+          },
+        ],
+        callToAction: {
+          text: 'Request Custom Quote',
+          href: '/contact?plan=custom',
+        },
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1616674282942-2835e62d612e?auto=format&fit=crop&w=1600&q=80',
-      alt: 'Printed website wireframes on a black table',
-    }}
-  >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    isAfterContent
-    items={[
-      {
-        title: 'Enhanced user engagement',
-        description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
-      },
-      {
-        title: 'Continuous improvement',
-        description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
-      },
-      {
-        title: 'Time and resource efficiency',
-        description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
-      },
-      {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
-    }}
-  >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
+  />
 
   <!-- Steps Widget ****************** -->
-
   <Steps
-    title="Get your dream website up and running in no time with AstroWind."
+    id="process"
+    title="How We Deliver Your Website in 4 Simple Steps"
     items={[
       {
-        title: 'Step 1: <span class="font-medium">Download</span>',
+        title: 'Step 1: <span class="font-medium">Discovery & Free Quote</span>',
         description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
+          'Share your goals, reference sites, and requirements via email or WhatsApp. Within 24 hours, you receive a clear scope, timeline, and fixed quote.',
+        icon: 'tabler:messages',
       },
       {
-        title: 'Step 2: <span class="font-medium">Add content</span>',
+        title: 'Step 2: <span class="font-medium">UI/UX Wireframe & Design</span>',
         description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
+          'We craft a modern visual layout tailored to your brand identity. You review and approve the design before full-scale coding begins.',
+        icon: 'tabler:palette',
       },
       {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
+        title: 'Step 3: <span class="font-medium">Agile Development & SEO Setup</span>',
         description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
+          'Our engineers build your site with clean, fast code, mobile responsiveness, lead forms, analytics, and Google-ready SEO architecture.',
+        icon: 'tabler:code',
       },
       {
-        title: 'Ready!',
-        icon: 'tabler:check',
+        title: 'Step 4: <span class="font-medium">Launch & Handover</span>',
+        description:
+          'After thorough cross-browser QA testing, we deploy your site to your domain and hand over 100% of the source code and credentials.',
+        icon: 'tabler:rocket',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
+      src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=987&q=80',
+      alt: 'Web development team collaboration',
     }}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS v4"
-    tagline="Components"
-    items={[
-      {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Heros',
-        description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
-      },
-      {
-        title: 'Features',
-        description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Content',
-        description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
-
-  <!-- Timeline Widget **************** -->
-
-  <Timeline
-    id="story"
-    layout="alternate"
-    tagline="Our story"
-    title="One template, since 2022"
-    subtitle="Started before Astro 1.0 shipped, shaped by every Astro release since, and by the people who kept sending pull requests."
-    items={[
-      {
-        date: 'June 2022',
-        title: 'A template for a framework still in beta',
-        description:
-          'AstroWind starts on Astro 1.0 beta with a handful of pages, a few widgets and one idea: a website can be fast, simple and good-looking at the same time.',
-        icon: 'tabler:rocket',
-      },
-      {
-        date: '2022',
-        title: 'The most starred Astro theme, in its first year',
-        description:
-          'By December it is the most starred theme in the Astro ecosystem, a place it would hold year after year. The first pull requests from strangers arrive, and they keep coming.',
-        icon: 'tabler:star-filled',
-      },
-      {
-        date: '2022–2023',
-        title: 'The busiest stretch',
-        description:
-          'Astro grows fast and the template grows with it: collections for content, better images, page transitions. The blog matures, the widgets double, the road to 1.0 begins, and more people than ever send pull requests.',
-        icon: 'tabler:users-group',
-      },
-      {
-        date: '2024',
-        title: 'Polish',
-        description:
-          'Astro 4, and a year of small, careful improvements, most of them sent in by contributors: accessibility, tooling, ways to edit and ways to deploy. Three thousand stars by September.',
-        icon: 'tabler:puzzle',
-      },
-      {
-        date: '2025',
-        title: 'Steady, and quieter',
-        description:
-          'Astro 5 and regular updates. Fewer commits, nothing broken, and the stars kept coming: five thousand by October.',
-        icon: 'tabler:refresh',
-      },
-      {
-        date: '2026',
-        title: 'Astro 7 and Tailwind CSS 4',
-        description:
-          'Two framework majors in one year. The template gets a new generation of widgets, complete landing pages, a blog that finally reads like documentation, and a guide so coding assistants know their way around.',
-        icon: 'tabler:sparkles',
-      },
-      {
-        date: '2026',
-        title: 'Release v1',
-        description:
-          'Four years after the first commit, the demo has no placeholders left: every page, every landing page and every post is real, and the template is ready for whatever comes next.',
-        icon: 'tabler:circle-check-filled',
-        highlight: true,
-      },
-      { icon: 'tabler:dots', ghost: true },
-    ]}
-  />
-
-  <!-- Note Widget ******************* -->
-
-  <Note title="Philosophy:" description="Simplicity, Best Practices and High Performance" />
-
-  <!-- HighlightedPosts Widget ******* -->
-
-  <BlogHighlightedPosts
-    title="Find out more content in our Blog"
-    postIds={[
-      'get-started-website-with-astro-tailwind-css',
-      'how-to-customize-astrowind-to-your-brand',
-      'useful-resources-to-create-websites',
-      'landing',
-    ]}
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro v7 + Tailwind CSS v4.
-                        Astro is a very interesting technology. Thanks.
-                `}
   />
 
   <!-- FAQs Widget ******************* -->
-
   <FAQs
     id="faqs"
     title="Frequently Asked Questions"
-    subtitle="The questions people ask before they clone the repository, answered briefly. For step-by-step tasks, the repository ships skills your AI coding assistant can follow."
+    subtitle="Everything you need to know about outsourcing your website development to Maiyu."
     tagline="FAQs"
     schema
     items={[
       {
-        title: 'What is AstroWind?',
+        title: 'How long does it take to build a website?',
         description:
-          'A free, open-source template for Astro and Tailwind CSS: a static site with a header, footer, twenty-plus reusable widgets, a Markdown/MDX blog, dark mode, RTL support, image optimisation, SEO metadata and an RSS feed, ready to be customised and deployed anywhere static files are served.',
+          'A standard Starter website takes about 5–7 business days. A Growth Marketing website ($999+) typically takes 10–14 business days, depending on how quickly content and feedback are shared.',
       },
       {
-        title: 'What do I need to start?',
+        title: 'Do I own the website and source code after completion?',
         description:
-          'A current Node.js (the exact minimum is in <code>package.json</code>) and a terminal. Run <code>npm create astro@latest -- --template arthelokyo/astrowind</code>, then <code>npm run dev</code>. Site name, URL, metadata and blog options live in <code>src/config.yaml</code>; colours and fonts in <code>src/components/CustomStyles.astro</code>.',
+          'Yes, 100%. Once the project is completed, all design assets, source code, GitHub repositories, and hosting accounts belong entirely to you.',
       },
       {
-        title: 'Can I use it for a site without a blog?',
+        title: 'What are the payment terms?',
         description:
-          'Yes. Set <code>apps.blog.isEnabled: false</code> in <code>src/config.yaml</code> and the blog routes, the RSS feed and the post widgets disappear from the build. The rest of the template is unaffected.',
+          'We keep it simple and fair: 50% deposit to kick off the project, and the remaining 50% only after you review and approve the completed website prior to final launch.',
       },
       {
-        title: 'How do I change colours, fonts and the logo?',
+        title: 'Will my website be mobile-friendly and SEO-optimized?',
         description:
-          'Colours are CSS variables in <code>src/components/CustomStyles.astro</code> (light and dark), fonts are configured in <code>astro.config.ts</code> through Astro’s Fonts API, and the logo is <code>src/components/Logo.astro</code>. The same variables also feed the shadcn/ui-compatible tokens, so shadcn-style components pick up your theme.',
+          'Absolutely. Every website we build is 100% responsive across phones, tablets, and desktops, and includes clean semantic code, meta tags, fast loading speeds, and an XML sitemap for Google indexing.',
       },
       {
-        title: 'Does it work with an AI coding assistant?',
+        title: 'Can you redesign our existing outdated website?',
         description:
-          'It is built for it. The repository includes <code>AGENTS.md</code> with the project conventions and a <code>.agents/skills/</code> folder with step-by-step guides for common tasks (disable the blog, set an Open Graph image, deploy under a base path, connect a CMS, deploy to Cloudflare…), so tools like Claude Code, Codex or Cursor can do them reliably.',
+          'Yes. We can migrate your existing content, upgrade the visual design to modern international standards, improve page speed, and preserve your existing SEO rankings.',
       },
       {
-        title: 'Where can I deploy it and what does it cost?',
+        title: 'How do we communicate during the project?',
         description:
-          'Anywhere that serves static files: Vercel, Netlify, Cloudflare, GitHub Pages, an nginx container (a Dockerfile is included) or your own server. The template is MIT licensed and free for personal and commercial projects.',
+          'You can reach us directly via Email (<a href="mailto:dong@tiantongfu.com" class="underline">dong@tiantongfu.com</a>) or WhatsApp (<a href="https://wa.me/8619903970011" class="underline">+86 199 0397 0011</a>) for fast, responsive updates across time zones.',
       },
     ]}
   />
 
   <!-- Stats Widget ****************** -->
-
   <Stats
     id="stats"
     countUp
     stats={[
-      { title: 'GitHub stars', amount: '6K' },
-      { title: 'Forks', amount: '1.7K' },
-      { title: 'Ready-made widgets', amount: '34' },
-      { title: 'Lighthouse score', amount: '100' },
+      { title: 'Projects Delivered', amount: '120+' },
+      { title: 'Client Satisfaction', amount: '99%' },
+      { title: 'Avg. PageSpeed Score', amount: '98' },
+      { title: 'Quote Turnaround', amount: '24h' },
     ]}
   />
 
   <!-- CallToAction Widget *********** -->
-
   <CallToAction
     actions={[
       {
         variant: 'primary',
-        text: 'Get Contact',
-        href: '#',
-        target: '_blank',
+        text: 'Get a Free Quote',
+        href: '/contact',
         icon: 'tabler:mail',
+      },
+      {
+        text: 'WhatsApp: +86 199 0397 0011',
+        href: 'https://wa.me/8619903970011?text=Hi%20Maiyu%2C%20I%20need%20a%20quote%20for%20a%20website.',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
       },
     ]}
   >
     <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+      Ready to Launch Your <br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Next Website?</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Free, open source and production-ready. <br class="hidden md:inline" />Clone it, replace the content and deploy.
+      Tell us about your project today and get a tailored roadmap & quote within 24 hours. <br class="hidden md:inline" />
+      Email: <strong>dong@tiantongfu.com</strong> · WhatsApp: <strong>+86 199 0397 0011</strong>
     </Fragment>
   </CallToAction>
 </Layout>
