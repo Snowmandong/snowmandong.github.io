@@ -1,0 +1,17 @@
+# Maiyu Web Studio
+
+> Maiyu Web Studio (tiantongfu.com) is a global web development and digital outsourcing studio specializing in high-performance corporate websites, high-converting marketing landing pages, e-commerce stores, and AI chatbot integration starting at $999.
+
+## Core Pages
+- [Home](https://www.tiantongfu.com/): Overview of Maiyu's web design and development outsourcing services, tech stack, and client results.
+- [Services](https://www.tiantongfu.com/services): Custom corporate web development, E-commerce solutions (Shopify/WooCommerce), UI/UX redesign, technical SEO, and AI integration.
+- [Pricing](https://www.tiantongfu.com/pricing): Transparent web development packages and clear deliverables starting from $999.
+- [Portfolio](https://www.tiantongfu.com/portfolio): Selected international web design case studies and performance benchmarks.
+- [Blog](https://www.tiantongfu.com/blog): Practical insights on modern web development, technical SEO, and conversion optimization.
+- [About](https://www.tiantongfu.com/about): Studio background, 10+ years of web engineering experience, and quality assurance workflow.
+- [Contact](https://www.tiantongfu.com/contact): Request a free project consultation and custom quote within 24 hours.
+
+## Contact & Business Details
+- Email: dong@tiantongfu.com
+- WhatsApp: +86 19903970011
+- Key Advantages: Fast delivery, mobile-first responsive architecture, built-in SEO & GEO structure, and 24/7 post-launch support.
